@@ -1,0 +1,18 @@
+<div class="card card-body p-5 mt-4">
+  <h1 class="display-4">Ofertas de trabajo que sólo encuentran los amigos.</h1>
+  <p class="lead" ></p>Hasta ahora. Porque también puedes encontrarlas tú.<br>
+  <hr class="my-4" />
+  Ofertas que las empresas publican en sus propias webs, actualizadas cada día... bueno, más o menos.</p>
+  <p>Registrate para ser el primero en enterarte de las novedades.</p>
+  <div>
+    <a class="btn btn-primary btn-lg" href="/auth/signup" role="button">Registro</a>
+  </div>
+  <p>Aquí tienes un listado de las últimas ofertas encontradas: </p>
+  
+    {{#each oferta}}
+
+      <li> En <b>{{this.company}}</b> buscan {{this.title}} </a> para trabajar en {{this.city}}: solicita hasta el {{deadline_}}.
+
+  {{/each}}
+
+</div>
