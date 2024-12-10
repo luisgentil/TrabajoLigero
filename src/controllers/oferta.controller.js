@@ -21,6 +21,7 @@ export const renderOferta = async (req, res) => {
           url: 1,
           company: 1,
           city: 1,
+          PR: 1,
           category: 1,
           deadline_application: 1,
           deadline_: {
@@ -179,7 +180,7 @@ export const renderOfertaSevilla = async (req, res) => {
     ],
     { maxTimeMS: 60000, allowDiskUse: true }
   );
-  res.render("ofertas",{ oferta: todasOfertasSevilla});
+  res.render("ofertasSE",{ oferta: todasOfertasSevilla});
 };
 
 export const renderOfertaAndalucia = async (req, res) => {
@@ -226,9 +227,102 @@ export const renderOfertaAndalucia = async (req, res) => {
     ],
     { maxTimeMS: 60000, allowDiskUse: true }
   );
-  res.render("ofertas",{ oferta: todasOfertasAndalucia});
+  res.render("ofertasAnd",{ oferta: todasOfertasAndalucia});
 };
 
+export const renderOfertaEspana = async (req, res) => {
+  const today = new Date();
+  const todasOfertasEspana = await Oferta.aggregate(
+    [
+      {
+        $match: {
+          PR: {
+            $nin: ["04", "11", "14", "18", "21", "23", "41", "AN", "00"]
+          },
+          deadline_application: {
+            $gt: new Date(today)
+          }
+        }
+      },
+      {
+        $project: {
+          title: 1,
+          createdAt: 1,
+          ofertaID: 1,
+          url: 1,
+          company: 1,
+          city: 1,
+          deadline_application: 1,
+          deadline_: {
+            $dateToString: {
+              format: "%d-%m-%Y",
+              date: "$deadline_application"
+            }
+          },
+          fechaPublicacion: {
+            $dateToString: {
+                      format: '%d-%m-%Y', 
+                      date: '$createdAt'
+                    }
+          },
+          category: 1,
+          PR: 1
+        }
+      },
+      { $sort: { createdAt: -1 } },
+      { $limit: 1000 }
+    ],
+    { maxTimeMS: 60000, allowDiskUse: true }
+  );
+  res.render("ofertasEsp",{ oferta: todasOfertasEspana});
+};
+
+export const renderOfertaMundo = async (req, res) => {
+  const today = new Date();
+  const todasOfertasMundo = await Oferta.aggregate(
+    [
+      {
+        $match: {
+          PR: {
+            $in: ["00"]
+          },
+          deadline_application: {
+            $gt: new Date(today)
+          }
+        }
+      },
+      {
+        $project: {
+          title: 1,
+          createdAt: 1,
+          ofertaID: 1,
+          url: 1,
+          company: 1,
+          city: 1,
+          deadline_application: 1,
+          deadline_: {
+            $dateToString: {
+              format: "%d-%m-%Y",
+              date: "$deadline_application"
+            }
+          },
+          fechaPublicacion: {
+            $dateToString: {
+                      format: '%d-%m-%Y', 
+                      date: '$createdAt'
+                    }
+          },
+          category: 1,
+          PR: 1
+        }
+      },
+      { $sort: { createdAt: -1 } },
+      { $limit: 1000 }
+    ],
+    { maxTimeMS: 60000, allowDiskUse: true }
+  );
+  res.render("ofertasMundo",{ oferta: todasOfertasMundo});
+};
 // //#######################################################################
 // // ####### Función Común para grabar cualquier lista de ofertas #########
 // // ### devuelta por cualquier función que revise una web con ofertas ####

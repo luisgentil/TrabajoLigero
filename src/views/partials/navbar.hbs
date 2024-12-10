@@ -1,35 +1,42 @@
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark bg-black">
   <div class="container-fluid">
-   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-   </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link active" href="/">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">EyEy</a>
-      </li>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Inicio</a>
+        </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Asint</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Buscar...</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Lorem</a></li>
-            <li><a class="dropdown-item" href="#">Impsum</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Dolor</a></li>
-            <li><a class="dropdown-item" href="#">Amet</a></li>
+            <li><a class="dropdown-item" href="/ofertas/sevilla">Sevilla</a></li>
+            <li><a class="dropdown-item" href="/ofertas/andalucia">Andalucía</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="/ofertas/espana">España</a></li>
+            <li><a class="dropdown-item" href="/ofertas/mundo">Mundo</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="/ofertasrecientes">Recientes</a></li>
+            <li class="nav-item"><a class="dropdown-item" href="/ofertas">Todas</a></li>
           </ul>
         </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/ofertas">Ofertas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about">About</a>
-      </li>
-    </ul>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/signin">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/signup">Registro</a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 </nav>
-
-

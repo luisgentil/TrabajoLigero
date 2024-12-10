@@ -1,23 +1,19 @@
 <div class="card card-body p-5 mt-4">
-  <h1 class="display-4">¿Por qué perderse las mejores ofertas de trabajo?</h1>
-  <p class="lead">Cada día cientos de empresas publican sus ofertas en la sección "Trabaja con nosotros" de sus
-    webs.<br> ¿Cómo informarse de todas?</p>
-  <p>En la web de nuevotrabajo.work.gd recopilamos muchas de esas ofertas para que no te las pierdas y puedas
-    postularte si te interesan.</p>
+  <h1 class="display-4">¿Por qué perderse las mejores ofertas de trabajo en Sevilla?</h1>
+  <p class="lead">Cada día cientos de empresas publican sus ofertas en la sección "Trabaja con nosotros" de sus webs.<br> ¿Cómo informarse de todas?</p>
   <hr class="my-4" />
-  Suscríbete aquí e infórmate de esas ofertas que las empresas publican en sus propias webs, actualizadas cada día...
-  </p>
+  <p>En est web recopilamos muchas de esas ofertas para que no te pierdas ninguna, y puedas postularte si te interesan.</p>
+  Suscríbete aquí e infórmate de esas ofertas que las empresas publican en sus propias webs, actualizadas cada día...</p>
   <p>Registrate para ser el primero en enterarte de las novedades.</p>
   <div>
     <a class="btn btn-primary btn-lg" href="/auth/signup" role="button">Registro</a>
   </div>
-  <p>Aquí tienes un listado de las últimas ofertas encontradas: </p>
+  <p>Aquí tienes algunas de las últimas ofertas encontradas: </p>
+  
+    {{#each oferta}}
 
-  {{#each oferta}}
+      <li> En <b>{{this.company}}</b> buscan {{this.title}} </a> para trabajar en {{this.city}}: solicita hasta el {{deadline_}}.
 
-  <li> En <b>{{this.company}}</b> buscan {{this.title}} </a> para trabajar en {{this.city}}: solicita hasta el
-    {{deadline_}}.
-
-    {{/each}}
+  {{/each}}
 
 </div>

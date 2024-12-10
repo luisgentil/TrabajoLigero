@@ -6,6 +6,8 @@ import {
   renderOfertaAndalucia,
   renderOfertasRecientes,
   renderNuevasOfertas,
+  renderOfertaEspana,
+  renderOfertaMundo,
 } from "../controllers/oferta.controller.js";
 // import { isAuthenticated } from "../helpers/auth.js";
 
@@ -17,6 +19,8 @@ router.get("/nuevasofertas", renderNuevasOfertas);
 router.get("/ofertasrecientes", renderOfertasRecientes);
 router.get("/ofertas/sevilla", renderOfertaSevilla);
 router.get("/ofertas/andalucia", renderOfertaAndalucia);
+router.get("/ofertas/espana", renderOfertaEspana);
+router.get("/ofertas/mundo", renderOfertaMundo);
 
 
 // borrar más adelante

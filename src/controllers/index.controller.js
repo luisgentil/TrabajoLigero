@@ -7,7 +7,11 @@ export const renderIndex = async (req, res) => {
   const ultimasOfertas = await Oferta.aggregate(
    [
     {
+      // añado la referencia a pr 41, mientras la web esté orientada a lo más local.
       '$match': {
+        'PR': {
+          $in: ["41"]
+        },
         'deadline_application': { 
           $gt: new Date(today)
         }
