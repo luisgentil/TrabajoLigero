@@ -15,8 +15,8 @@ const router = Router();
 
 // 
 router.get("/ofertas", renderOferta);
-router.get("/nuevasofertas", renderNuevasOfertas);
-router.get("/ofertasrecientes", renderOfertasRecientes);
+router.get("/ofertas/nuevas", renderNuevasOfertas);
+router.get("/ofertas/recientes", renderOfertasRecientes);
 router.get("/ofertas/sevilla", renderOfertaSevilla);
 router.get("/ofertas/andalucia", renderOfertaAndalucia);
 router.get("/ofertas/espana", renderOfertaEspana);
