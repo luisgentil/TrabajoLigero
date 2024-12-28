@@ -321,8 +321,65 @@ export const renderOfertaMundo = async (req, res) => {
     ],
     { maxTimeMS: 60000, allowDiskUse: true }
   );
-  res.render("ofertasMundo",{ oferta: todasOfertasMundo});
+  res.render("ofertasMundo",{ oferta: todasOfertasMundo });
 };
+
+export const renderFormBusqueda = (req, res) => res.render('filter.hbs');
+
+export const renderEncontrar = async (req, res) => {
+  const provinciaSelecionada = req.body.inputPR;
+  console.log('inputPR', req.body.inputPR);
+  const today = new Date();
+  const ofertasEncontradas = await Oferta.aggregate(
+    [
+      {
+        $match: {
+          PR: {
+            $in: [provinciaSelecionada]
+          },
+          deadline_application: {
+            $gt: new Date(today)
+          }
+        }
+      },
+      {
+        $project: {
+          title: 1,
+          createdAt: 1,
+          ofertaID: 1,
+          url: 1,
+          company: 1,
+          city: 1,
+          deadline_application: 1,
+          deadline_: {
+            $dateToString: {
+              format: "%d-%m-%Y",
+              date: "$deadline_application"
+            }
+          },
+          fechaPublicacion: {
+            $dateToString: {
+                      format: '%d-%m-%Y', 
+                      date: '$createdAt'
+                    }
+          },
+          category: 1,
+          PR: 1,
+        }
+      },
+      { $sort: { createdAt: -1 } },
+      { $limit: 1000 }
+    ],
+    { maxTimeMS: 60000, allowDiskUse: true }
+  );
+  res.render("ofertasFiltradas" ,{ oferta: ofertasEncontradas });
+};
+
+/* export const renderTest = async (req, res) => {
+  const receivedData = req.body.inputText;
+  console.log('Datos recibidos:', receivedData);
+  res.status(201).send('Datos recibidos correctamente');
+}; */
 // //#######################################################################
 // // ####### Función Común para grabar cualquier lista de ofertas #########
 // // ### devuelta por cualquier función que revise una web con ofertas ####
