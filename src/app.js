@@ -13,7 +13,6 @@ import { MONGODB_URI, PORT } from "./config.js";
 
 import indexRoutes from "./routes/index.routes.js";
 import ofertaRoutes from "./routes/oferta.routes.js";
-import scraperRoutes from "./routes/scraper.routes.js";
 // import "./config/passport.js";
 
 // Initializations
@@ -69,7 +68,6 @@ app.use(indexRoutes);  // mantengo por ahora
 // app.use(userRoutes);   // comentar más adelante
 // app.use(notesRoutes);  // comentar más adelante
 app.use(ofertaRoutes);   // descomentar más adelante
-app.use(scraperRoutes);   // descomentar más adelante
 
 // static files
 app.use(express.static(join(__dirname, "public")));
