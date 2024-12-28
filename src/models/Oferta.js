@@ -36,6 +36,14 @@ const OfertaSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    departament: {
+      type: String,
+      required: false,
+    },
+    sector: {
+      type: String,
+      required: false,
+    },
     deadline_application: {
       type: Date,
       required: false,

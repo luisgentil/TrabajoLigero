@@ -1,0 +1,42 @@
+<div class="card card-body p-5 mt-4">
+  <h1> Ofertas seleccionadas: </h1>
+  <p>Ofertas ordenadas por fecha límite de solicitud:</p>
+  <ol>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">nº</th>
+          <th scope="col">Puesto</th>
+          <th scope="col"> Fecha </th>
+          <th scope="col">Empresa</th>
+          <th scope="col">Lugar</th>
+          <th scope="col">Enlace</th>
+          <th scope="col">Límite</th>
+          <th scope="col">Categoría</th>
+          <th scope="col"> PR </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each oferta}}
+        <tr>
+          <th scope="row">
+            <li></li>
+          </th>
+          <td>{{this.title}}</td>
+          <td style="20">{{this.fechaPublicacion}}</td>
+          <td>{{this.company}}</td>
+          <td>{{this.city}}</td>
+          <td><a href=" {{this.url}} " target="_blank"> {{this.ofertaID}} </a></td>
+          <td>{{this.deadline_}}</td>
+          <td>{{this.category}}</td>
+          <td>{{this.PR}}</td>
+          {{/each}}
+        </tr>
+      </tbody>
+    </table>
+  </ol>
+  <div>
+    <h3>¿Aún buscando?</h3>
+    Revisa las ofertas que te interesan: <a class="btn btn-primary btn-lg" href="/ofertas/buscar" role="button">Buscar</a>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<section class="card">
+    <div class="card-body">
+        <h1> Buscar ofertas </h1>
+        <br>
+        <h3>Utiliza los filtros para encontrar tu oferta de empleo.</h3>
+     {{!--             <form action="/data" method="post">
+        <label for="inputText">Ingresa texto:</label>
+        <input type="text" id="inputText" name="inputText" required>
+        <button type="submit">Enviar</button>
+    </form>  
+    --}}
+   <form action="/ofertas/encontrado" method="post">
+            <div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity" name="inputCity">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputPR">Provincia</label>
+                        <select id="inputPR" class="form-control" name="inputPR">
+                            <option selected>Provincia...</option>
+                            <option value="41">Sevilla</option>
+                            <option value="21">Huelva</option>
+                            <option value="11">Cádiz</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" name="inputZip">
+                    </div>
+                    <input type="submit" class="btn btn-primary" >
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{{!-- Tener en cuenta: https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript
+--}}
