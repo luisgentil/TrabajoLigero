@@ -12,24 +12,138 @@
    <form action="/ofertas/encontrado" method="post">
             <div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity" name="inputCity">
+                    <div class="form-group col-md-4">
+                        <label for="inputCCAA">CCAA</label>
+                        <select id="inputCCAA" class="form-control" name="inputCCAA">
+                            <option selected></option>
+                            <option value='AN'>Andalucia</option> 
+                            <option value='AR'>Aragón</option> 
+                            <option value='AS'>Asturias</option> 
+                            <option value='CN'>Canarias</option> 
+                            <option value='CB'>Cantabria</option> 
+                            <option value='CL'>Castilla y León</option> 
+                            <option value='CM'>Castilla-La Mancha</option> 
+                            <option value='CAT'>Cataluña</option> 
+                            <option value='EX'>Extremadura</option> 
+                            <option value='GA'>Galicia</option> 
+                            <option value='IB'>Islas Baleares</option> 
+                            <option value='RI'>La Rioja</option> 
+                            <option value='MD'>Madrid</option> 
+                            <option value='MU'>Murcia</option> 
+                            <option value='NA'>Navarra</option> 
+                            <option value='PV'>País Vasco</option> 
+                            <option value='VA'>Valencia</option> 
+                            <option value='CEU'>Ciudad Autónoma de Ceuta</option> 
+                            <option value='MLL'>Ciudad Autónoma de Melilla</option> 
+                            <option value='Rem'>- Remoto - </option> 
+                        </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputPR">Provincia</label>
                         <select id="inputPR" class="form-control" name="inputPR">
-                            <option selected>Provincia...</option>
-                            <option value="41">Sevilla</option>
-                            <option value="21">Huelva</option>
-                            <option value="11">Cádiz</option>
+                            <option selected></option>
+                            <option value='01'>Álava</option> 
+                            <option value='02'>Albacete</option> 
+                            <option value='03'>Alicante</option> 
+                            <option value='04'>Almería</option> 
+                            <option value='05'>Ávila</option> 
+                            <option value='06'>Badajoz</option> 
+                            <option value='07'>Baleares</option> 
+                            <option value='08'>Barcelona</option> 
+                            <option value='09'>Burgos</option> 
+                            <option value='10'>Cáceres</option> 
+                            <option value='11'>Cádiz</option> 
+                            <option value='12'>Castellón</option> 
+                            <option value='13'>Ciudad Real</option> 
+                            <option value='14'>Córdoba</option> 
+                            <option value='15'>La Coruña</option> 
+                            <option value='16'>Cuenca</option> 
+                            <option value='17'>Gerona</option> 
+                            <option value='18'>Granada</option> 
+                            <option value='19'>Guadalajara</option> 
+                            <option value='20'>Guipúzcoa</option> 
+                            <option value='21'>Huelva</option> 
+                            <option value='22'>Huesca</option> 
+                            <option value='23'>Jaén</option> 
+                            <option value='24'>León</option> 
+                            <option value='25'>Lérida</option> 
+                            <option value='26'>La Rioja</option> 
+                            <option value='27'>Lugo</option> 
+                            <option value='28'>Madrid</option> 
+                            <option value='29'>Málaga</option> 
+                            <option value='30'>Murcia</option> 
+                            <option value='31'>Navarra</option> 
+                            <option value='32'>Orense</option> 
+                            <option value='33'>Asturias</option> 
+                            <option value='34'>Palencia</option> 
+                            <option value='35'>Las Palmas</option> 
+                            <option value='36'>Pontevedra</option> 
+                            <option value='37'>Salamanca</option> 
+                            <option value='38'>Santa Cruz de Tenerife</option> 
+                            <option value='39'>Cantabria</option> 
+                            <option value='40'>Segovia</option> 
+                            <option value='41'>Sevilla</option> 
+                            <option value='42'>Soria</option> 
+                            <option value='43'>Tarragona</option> 
+                            <option value='44'>Teruel</option> 
+                            <option value='45'>Toledo</option> 
+                            <option value='46'>Valencia</option> 
+                            <option value='47'>Valladolid</option> 
+                            <option value='48'>Vizcaya</option> 
+                            <option value='49'>Zamora</option> 
+                            <option value='50'>Zaragoza</option> 
+                            <option value='51'>Ceuta</option> 
+                            <option value='52'>Melilla</option> 
+                            <option value='00'>-resto-</option> 
                         </select>
                     </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputZip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip" name="inputZip">
+                    <div class="form-group col-md-4">
+                        <label for="inputCategory">Categoria</label>
+                        <select type="text" class="form-control" id="inputCategory" name="inputCategory">
+                            <option selected></option>
+                            <option>tecnico</option>
+                            <option>administrativo</option>
+                            <option>practicas</option>
+                            <option>.</option>
+                        </select>
                     </div>
-                    <input type="submit" class="btn btn-primary" >
+                    <div class="form-group col-md-4">
+                        <label for="inputSector">Sector</label>
+                        <select type="text" class="form-control" id="inputSector" name="inputSector">
+                            <option selected></option>
+                            <option>Aeronautico</option> 
+                            <option>Alimentario</option> 
+                            <option>Educativo</option> 
+                            <option>IT</option> 
+                            <option>Publico</option> 
+                            <option>Quimico</option> 
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputCompany">Empresa</label>
+                        <select type="text" class="form-control" id="inputCompany" name="inputCompany">
+                            <option selected></option> 
+                            <option>Acciona</option> 
+                            <option>Aciturri</option> 
+                            <option>AGQ Labs</option> 
+                            <option>Bureau Veritas</option> 
+                            <option>Claire Joster</option> 
+                            <option>Enel</option> 
+                            <option>Entidad instrumental Junta Andalucía</option> 
+                            <option>Hitachi</option> 
+                            <option>Isprox</option> 
+                            <option>Salesianos</option> 
+                            <option>SPB Global</option> 
+                            <option>Tragsa</option> 
+                            <option>Tragsatec</option> 
+                            <option>Vall Companys</option> 
+                        </select>
+
+                    {{!-- <input type="submit" class="btn btn-primary" > --}}
+                </div>
+                <div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" >Buscar</button>
                 </div>
             </div>
         </form>

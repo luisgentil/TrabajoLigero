@@ -32,6 +32,12 @@ export const codigoPR = (municipio) => {
     let pueblo = municipio.split(' y ')[0];
     municipio = pueblo; // asignamos muncipio sólo a la primera palabra, a ver si funciona
   };
+  // Comprueba si hay paréntesis ' Spain ' --> spain porque antes de llamar municipio es pasado a minúsculas
+  if (municipio.includes(' spain')) {
+    let pueblo = municipio.split(' spain')[0];
+    municipio = pueblo; // asignamos muncipio sólo a la primera palabra
+  };
+
   // elimina posibles espacios
   municipio = municipio.trim();
   // filtra los elementos que coinciden con el municipio
@@ -50,9 +56,28 @@ export const codigoPR = (municipio) => {
     else if (municipio == 'catalonia') { municipio_PR = 'CAT' } // 
     else if (municipio == 'navarra') { municipio_PR = 'NA' } // 
     else if (municipio == 'castilla y león') { municipio_PR = 'CL' } // 
+    else if (municipio == 'aragón') { municipio_PR = 'AR' } // Igualando código select
+    else if (municipio == 'canarias') { municipio_PR = 'CN' } // Igualando código select
+    else if (municipio == 'cantabria') { municipio_PR = 'CB' } // Igualando código select
+    else if (municipio == 'castilla-la mancha') { municipio_PR = 'CM' } // Igualando código select
+    else if (municipio == 'ciudad autónoma de ceuta') { municipio_PR = 'CEU' } // Igualando código select
+    else if (municipio == 'ciudad autónoma de melilla') { municipio_PR = 'MLL' } // Igualando código select
+    else if (municipio == 'extremadura') { municipio_PR = 'EX' } // Igualando código select
+    else if (municipio == 'galicia') { municipio_PR = 'GA' } // Igualando código select
+    else if (municipio == 'islas baleares') { municipio_PR = 'IB' } // Igualando código select
+    else if (municipio == 'la rioja') { municipio_PR = 'RI' } // Igualando código select
+    else if (municipio == 'madrid') { municipio_PR = 'MD' } // Igualando código select
+    else if (municipio == 'murcia') { municipio_PR = 'MU' } // Igualando código select
+    else if (municipio == 'país vasco') { municipio_PR = 'PV' } // Igualando código select
+    else if (municipio == 'bizkaia') { municipio_PR = 'PV' } //
+    else if (municipio == 'araba') { municipio_PR = 'PV' } //
+    else if (municipio == 'gipuzkoa') { municipio_PR = 'PV' } //
+    else if (municipio == 'valencia') { municipio_PR = 'VA' } // Igualando código select 
     else if (municipio == 'ccaa') { municipio_PR = 'ES' } // 
     else if (municipio == 'nacional') { municipio_PR = 'ES' } // 
     else if (municipio == 'remote') { municipio_PR = 'Rem' } // 
+    // Igualando códigos con los usados en la select de filter.hbs
+
   };
   // devuelve las dos primeras cifras
   return municipio_PR;

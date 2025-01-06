@@ -2648,11 +2648,11 @@
     "cp": "16313"
   },
   {
-    "nom": "alicante/alacant",
+    "nom": "alicante",
     "cp": "03001"
   },
   {
-    "nom": "alicante/alacant",
+    "nom": "alacant",
     "cp": "03002"
   },
   {
@@ -13504,15 +13504,15 @@
     "cp": "08719"
   },
   {
-    "nom": "castellón de la plana/castelló de la plana",
+    "nom": "castellón de la plana",
     "cp": "12001"
   },
   {
-    "nom": "castellón de la plana/castelló de la plana",
+    "nom": "castelló de la plana",
     "cp": "12002"
   },
   {
-    "nom": "castellón de la plana/castelló de la plana",
+    "nom": "castelló",
     "cp": "12003"
   },
   {
@@ -16564,7 +16564,7 @@
     "cp": "15001"
   },
   {
-    "nom": "coruña, a",
+    "nom": "a coruña",
     "cp": "15002"
   },
   {
@@ -21716,7 +21716,7 @@
     "cp": "17001"
   },
   {
-    "nom": "girona",
+    "nom": "gerona",
     "cp": "17002"
   },
   {
@@ -35528,11 +35528,11 @@
     "cp": "35001"
   },
   {
-    "nom": "palmas de gran canaria, las",
+    "nom": "las palmas",
     "cp": "35002"
   },
   {
-    "nom": "palmas de gran canaria, las",
+    "nom": "las palmas de gran canaria",
     "cp": "35003"
   },
   {
@@ -52204,11 +52204,15 @@
     "cp": "47672"
   },
   {
-    "nom": "valencia",
+    "nom": "valencia/valència",
     "cp": "46001"
   },
   {
     "nom": "valencia",
+    "cp": "46001"
+  },
+  {
+    "nom": "valència",
     "cp": "46002"
   },
   {

@@ -327,15 +327,50 @@ export const renderOfertaMundo = async (req, res) => {
 export const renderFormBusqueda = (req, res) => res.render('filter.hbs');
 
 export const renderEncontrar = async (req, res) => {
-  const provinciaSelecionada = req.body.inputPR;
-  console.log('inputPR', req.body.inputPR);
+  // Leer los parámetros de búsqueda a partir de los campos del filtro:
+  const provinciaSeleccionada = req.body.inputPR;
+  const categorySeleccionada = req.body.inputCategory;
+  const sectorSeleccionada = req.body.inputSector;
+  const companySeleccionada = req.body.inputCompany;
+  console.log((req.body.inputPR), (categorySeleccionada), sectorSeleccionada , companySeleccionada);
   const today = new Date();
-  const ofertasEncontradas = await Oferta.aggregate(
+  // Construir cada sección de búsqueda de cada parámetro
+  const partePR = {$match: {PR: {$in: [ provinciaSeleccionada ]} }}
+  const parteCategory = {$match: {category: {$in: [ categorySeleccionada ]}}}
+  const parteSector = {$match: {sector: {$in: [ sectorSeleccionada ]}}}
+  const parteCompany = {$match: {company: {$in: [ companySeleccionada ]}}}
+
+  // a partir de aquí, todos estos parámetros estarán siempre, al final de la cadena aggregate
+  const parteDeadline = {$match: {deadline_application: {$gt: new Date( today )}}}
+  const parteProject = {$project: {title: 1,createdAt: 1,ofertaID: 1,url: 1,company: 1,city: 1,deadline_application: 1,deadline_: {$dateToString: {format: "%d-%m-%Y",date: "$deadline_application"}}, fechaPublicacion: {$dateToString: {format: "%d-%m-%Y", date: "$createdAt"}},category: 1,PR: 1,}}
+  const parteSort = { $sort: { createdAt: -1 } }
+  const parteLimit = { $limit: 1000 }
+
+  // Componemos la cadena de búsqueda a partir de los elementos NO vacíos
+  // Construir el array de cadena aggregate a partir del control de contenido o NO contenido de cada parámetro de búsqueda en el formulario, 
+  let cadenaAgregada = [];
+  if (provinciaSeleccionada !='') {cadenaAgregada.push(partePR)} ;
+  if (categorySeleccionada !='')  {cadenaAgregada.push(parteCategory)} ;
+  if (sectorSeleccionada !='')  {cadenaAgregada.push(parteSector)} ;
+  if (companySeleccionada !='')  {cadenaAgregada.push(parteCompany)} ;
+  // Añadir los parámetros finales que siempre estarán en la cadena de aggregate
+  cadenaAgregada.push(parteDeadline);
+  cadenaAgregada.push(parteProject); 
+  cadenaAgregada.push(parteSort);
+  cadenaAgregada.push(parteLimit); 
+  // console.log(cadenaAgregada);
+  // Finalmente, realiza la consulta con la cadena aggregate construida.
+  const ofertasEncontradas = await Oferta.aggregate( cadenaAgregada );
+    
+  /* const ofertasEncontradas = await Oferta.aggregate(
     [
       {
         $match: {
           PR: {
-            $in: [provinciaSelecionada]
+            $in: [provinciaSeleccionada]
+          },
+          category: {
+            $in: [categorySeleccionada]
           },
           deadline_application: {
             $gt: new Date(today)
@@ -371,7 +406,8 @@ export const renderEncontrar = async (req, res) => {
       { $limit: 1000 }
     ],
     { maxTimeMS: 60000, allowDiskUse: true }
-  );
+  ); */
+  
   res.render("ofertasFiltradas" ,{ oferta: ofertasEncontradas });
 };
 
