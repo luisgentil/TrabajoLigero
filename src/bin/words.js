@@ -12,7 +12,7 @@ export const practicasFunction = (frase)  => {
 }
 
 export const administrativoFunction = (frase)  => {
-    const administrativoArray = ['administrativo','administrativa', 'oficial','teleoperador','auxiliar','mecánico','conductor','secretario', 'secretaria', 'socorrista']; 
+    const administrativoArray = ['administrativo','administrativa', 'oficial','teleoperador','auxiliar','mecánico','conductor','secretario', 'secretaria', 'socorrista', 'administratiu/va']; 
     let suma = 0;
     let listaPalabras = administrativoArray;
     listaPalabras.forEach(contar);
@@ -22,7 +22,7 @@ export const administrativoFunction = (frase)  => {
 }
 
 export const tecnicoFunction = (frase)  => {
-    const tecnicoArray = ['técnico','consultor','consulttant','developer','desarrollador','auditor','inspector','ingeniero', 'ingenier@','responsable','coordinador','programador','engineer','specialist','especialista','licenciado','licenciatura','analista','director','dirección','investigador','controller','jefe','graduado','universitario','arquitecto','ingeniería','médico','medicina','formador','psicólogo','diplomado','delineante','graduate','jefatura','Cartógrafo','veterinario', 'veterinaria', 'técnica', 'tecnica','tecnico', 'coordinador', 'coordinadora', 'inspector', 'inspectora', 'manager', 'technician']; 
+    const tecnicoArray = ['técnico','consultor','consultant','developer','desarrollador','auditor','inspector','ingeniero', 'ingenier@','responsable','coordinador','programador','engineer','specialist','especialista','licenciado','licenciatura','analista','director','dirección','investigador','controller','jefe','graduado','universitario','arquitecto','ingeniería','médico','medicina','formador','psicólogo','diplomado','delineante','graduate','jefatura','Cartógrafo','veterinario', 'veterinaria', 'técnica', 'tecnica','tecnico', 'coordinador', 'coordinadora', 'inspector', 'inspectora', 'manager', 'technician', 'comercial', 'químico', 'arquitecte', 'arquitecte/a', 'tècnic', 'tècnic/a', 'tècnica','enfermera/o', 'gestor/a', 'enginyer', 'contable', 'asesor/a', 'diseñador/a', 'adjunto/a', 'abogado/a', 'delegado/a', 'proyectista', 'administrador/a' , 'abogado/a', 'marketing', 'magisterio/grado', 'odontólogo/a', 'científico/a', 'docent', 'arquitectura', 'grau', 'professor', 'magisterio', 'profesorado', 'sales executive', 'profesor', 'profesor/a', 'maestro/a', 'tècnic', 'tecnic@' ,'ciencias','grado/diplomatura', 'diplomatura/grado', 'filología', 'scientist']; 
     let suma = 0;
     let listaPalabras = tecnicoArray;
     listaPalabras.forEach(contar);

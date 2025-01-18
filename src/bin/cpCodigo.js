@@ -65,8 +65,10 @@ export const codigoPR = (municipio) => {
     else if (municipio == 'extremadura') { municipio_PR = 'EX' } // Igualando código select
     else if (municipio == 'galicia') { municipio_PR = 'GA' } // Igualando código select
     else if (municipio == 'islas baleares') { municipio_PR = 'IB' } // Igualando código select
+    else if (municipio == 'baleares') { municipio_PR = 'IB' } // Igualando código select
     else if (municipio == 'la rioja') { municipio_PR = 'RI' } // Igualando código select
     else if (municipio == 'madrid') { municipio_PR = 'MD' } // Igualando código select
+    else if (municipio == 'comunidad de madrid') { municipio_PR = 'MD' } // Igualando código select
     else if (municipio == 'murcia') { municipio_PR = 'MU' } // Igualando código select
     else if (municipio == 'país vasco') { municipio_PR = 'PV' } // Igualando código select
     else if (municipio == 'bizkaia') { municipio_PR = 'PV' } //

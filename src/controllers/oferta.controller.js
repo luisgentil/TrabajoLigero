@@ -328,13 +328,15 @@ export const renderFormBusqueda = (req, res) => res.render('filter.hbs');
 
 export const renderEncontrar = async (req, res) => {
   // Leer los parámetros de búsqueda a partir de los campos del filtro:
+  const ccaaSeleccionada = req.body.inputCCAA.split(' ');
   const provinciaSeleccionada = req.body.inputPR;
   const categorySeleccionada = req.body.inputCategory;
   const sectorSeleccionada = req.body.inputSector;
   const companySeleccionada = req.body.inputCompany;
-  console.log((req.body.inputPR), (categorySeleccionada), sectorSeleccionada , companySeleccionada);
+  console.log((ccaaSeleccionada), (provinciaSeleccionada), categorySeleccionada, sectorSeleccionada, companySeleccionada);
   const today = new Date();
   // Construir cada sección de búsqueda de cada parámetro
+  const parteCCAA = {$match: {PR: {$in:  ccaaSeleccionada } }}
   const partePR = {$match: {PR: {$in: [ provinciaSeleccionada ]} }}
   const parteCategory = {$match: {category: {$in: [ categorySeleccionada ]}}}
   const parteSector = {$match: {sector: {$in: [ sectorSeleccionada ]}}}
@@ -349,6 +351,7 @@ export const renderEncontrar = async (req, res) => {
   // Componemos la cadena de búsqueda a partir de los elementos NO vacíos
   // Construir el array de cadena aggregate a partir del control de contenido o NO contenido de cada parámetro de búsqueda en el formulario, 
   let cadenaAgregada = [];
+  if (ccaaSeleccionada !='') {cadenaAgregada.push(parteCCAA)} ;
   if (provinciaSeleccionada !='') {cadenaAgregada.push(partePR)} ;
   if (categorySeleccionada !='')  {cadenaAgregada.push(parteCategory)} ;
   if (sectorSeleccionada !='')  {cadenaAgregada.push(parteSector)} ;
