@@ -56,6 +56,3 @@ export const renderAbout = (req, res) => {
   res.render("about");
 };
 
-export const renderSitemap = (req, res) => {
-  res.render('sitemap');
-};
