@@ -56,3 +56,6 @@ export const renderAbout = (req, res) => {
   res.render("about");
 };
 
+export const renderLegal = (req, res) => {
+  res.render("legal");
+};

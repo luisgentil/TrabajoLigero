@@ -9,3 +9,17 @@ body {
 .bg-black {
   background: #090909;
 }
+
+.footer {
+  padding: 25px 25px 25px;
+}
+
+a.footer {
+  font-size: 0.5em;
+}
+
+.logo {
+  font-size: 1em;
+  font-weight: 500;
+}
+

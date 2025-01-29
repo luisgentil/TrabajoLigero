@@ -13,7 +13,7 @@
           <th scope="col">Enlace</th>
           <th scope="col">Límite</th>
           <th scope="col">Categoría</th>
-          <th scope="col"> PR </th>
+          {{!-- <th scope="col"> PR </th> --}}
         </tr>
       </thead>
       <tbody>
@@ -29,7 +29,7 @@
           <td><a href=" {{this.url}} " target="_blank"> {{this.ofertaID}} </a></td>
           <td>{{this.deadline_}}</td>
           <td>{{this.category}}</td>
-          <td>{{this.PR}}</td>
+          {{!-- <td>{{this.PR}}</td> --}}
           {{/each}}
         </tr>
       </tbody>
@@ -37,7 +37,9 @@
   </ol>
   <div>
     <h3>¿Aún buscando?</h3>
-    Consultas las ofertas en el resto de España. <a class="btn btn-primary btn-lg" href="/ofertas/espana"
-      role="button">Ofertas España</a>
+    Consulta las ofertas en el resto de España, resto del Mundo o filtra por otras características. <br>
+    <a class="btn btn-primary btn-lg" href="/ofertas/espana" role="button">Ofertas España</a>
+    <a class="btn btn-secondary btn-lg" href="/ofertas/mundo" role="button">Ofertas Mundo</a>
+    <a class="btn btn-success btn-lg" href="/ofertas/buscar" role="button">Filtrar Ofertas</a>
   </div>
 </div>
