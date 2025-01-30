@@ -270,7 +270,7 @@ export const renderOfertaEspana = async (req, res) => {
         }
       },
       { $sort: { createdAt: -1 } },
-      { $limit: 1000 }
+      { $limit: 2000 }
     ],
     { maxTimeMS: 60000, allowDiskUse: true }
   );
