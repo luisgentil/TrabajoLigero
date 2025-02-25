@@ -16,6 +16,3 @@ mongoose.connection.on("disconnected", () => {
   console.log("Mongoose is disconnected");
 });
 
-// no cambio nada
-
-

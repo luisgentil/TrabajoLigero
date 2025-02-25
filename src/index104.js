@@ -1,9 +1,9 @@
 import app from "./app.js";
-// import { createAdminUser } from "./libs/createUser.js";
+import { createAdminUser } from "./libs/createUser.js";
 import "./database.js";
 
 async function main() {
-  // await createAdminUser();
+  await createAdminUser();
   app.listen(app.get("port"));
 
   console.log("Server on port", app.get("port"));
@@ -11,6 +11,3 @@ async function main() {
 }
 
 main();
-
-
-// Nada que cambiar. El adminUser no es necesario, pero tampoco estorba...creo.
