@@ -10,7 +10,7 @@ import {
 const router = Router();
 
 // Routes // TEMPORALMENTE DESACTIVADO
-// router.get("/auth/signup", renderSignUpForm);
+router.get("/auth/signup", renderSignUpForm);
 
 // router.post("/auth/signup", signup);
 
