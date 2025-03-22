@@ -419,6 +419,58 @@ export const testFunc = async (req, res) => {
   console.log('Datos recibidos:', receivedData);
   res.status(201).send('Datos recibidos correctamente');
 };
+
+export const ofertasNewsletterSevilla = async (req, res) => {
+  const today = new Date();
+  const lastweek = new Date(today);
+  lastweek.setDate(today.getDate() - 7); //sólo consideramos las ofertas de los últimos 7 días
+  const ofertasNewsletterSev = await Oferta.aggregate(
+    [
+      {
+        $match: {
+          PR: {
+            $in: ["41"]
+          },
+          deadline_application: {
+            $gt: new Date(today)
+          },
+          createdAt: {
+            $gt: new Date(lastweek)
+          }
+        }
+      },
+      {
+        $project: {
+          title: 1,
+          createdAt: 1,
+          ofertaID: 1,
+          url: 1,
+          company: 1,
+          city: 1,
+          deadline_application: 1,
+          deadline_: {
+            $dateToString: {
+              format: "%d-%m-%Y",
+              date: "$deadline_application"
+            }
+          },
+          fechaPublicacion: {
+            $dateToString: {
+                      format: '%d-%m-%Y', 
+                      date: '$createdAt'
+                    }
+          },
+          category: 1,
+        }
+      },
+      { $sort: { createdAt: -1 } },
+      { $limit: 1000 }
+    ],
+    { maxTimeMS: 60000, allowDiskUse: true }
+  );
+  // res.send(ofertasNewsletterSev);
+  res.render("ofertas/ofertasNewsletter",{ oferta: ofertasNewsletterSev, layout: 'mainLight.hbs'});
+};
 // //#######################################################################
 // // ####### Función Común para grabar cualquier lista de ofertas #########
 // // ### devuelta por cualquier función que revise una web con ofertas ####

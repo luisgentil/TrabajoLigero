@@ -11,6 +11,7 @@ import {
   renderFormBusqueda,
   renderEncontrar,
   testFunc,
+  ofertasNewsletterSevilla,
 } from "../controllers/oferta.controller.js";
 import { isAuthenticated } from "../helpers/auth.js";
 
@@ -26,6 +27,7 @@ router.get("/ofertas/espana",  renderOfertaEspana);
 router.get("/ofertas/mundo", renderOfertaMundo);
 router.get("/ofertas/buscar",  renderFormBusqueda);
 router.post("/ofertas/encontrado",  renderEncontrar);
+router.get("/ofertas/newssev",  ofertasNewsletterSevilla);
 /* // Para cuando estar registrado sea obligatorio
 router.get("/ofertas", isAuthenticated, renderOferta);
 router.get("/ofertas/nuevas", isAuthenticated, renderNuevasOfertas);  // últimas 2 h
