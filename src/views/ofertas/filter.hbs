@@ -1,100 +1,103 @@
 <section class="card">
-    <div class="card-body">
+    <div class="card card-body p-5 mt-4">
         <h1> Buscar ofertas </h1>
         <br>
         <h3>Utiliza los filtros para encontrar tu oferta de empleo.</h3>
-     {{!--             <form action="/data" method="post">
-        <label for="inputText">Ingresa texto:</label>
-        <input type="text" id="inputText" name="inputText" required>
-        <button type="submit">Enviar</button>
-    </form>  
-    --}}
-   <form action="/ofertas/encontrado" method="post">
+        <script async src="https://cse.google.com/cse.js?cx=a76ecbbf4f0f24196">
+        </script>
+        <div class="gcse-search"></div>
+        {{!-- <form action="/data" method="post">
+            <label for="inputText">Ingresa texto:</label>
+            <input type="text" id="inputText" name="inputText" required>
+            <button type="submit">Enviar</button>
+        </form>
+        --}}
+        <form action="/ofertas/encontrado" method="post">
             <div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputCCAA">CCAA</label>
                         <select id="inputCCAA" class="form-control" name="inputCCAA">
                             <option selected></option>
-                            <option value='AN 04 11 14 18 21 23 29 41'>Andalucia</option> 
-                            <option value='AR 22 44 50'>Aragón</option> 
-                            <option value='AS 33'>Asturias</option> 
-                            <option value='CN 35 38'>Canarias</option> 
-                            <option value='CB 39'>Cantabria</option> 
-                            <option value='CL 05 09 24 34 37 40 42 47 49'>Castilla y León</option> 
-                            <option value='CM 02 13 16 19 45'>Castilla-La Mancha</option> 
-                            <option value='CAT 08 17 25 43'>Cataluña</option> 
-                            <option value='EX 06 10'>Extremadura</option> 
-                            <option value='GA 15 27 32 36'>Galicia</option> 
-                            <option value='IB 07'>Islas Baleares</option> 
-                            <option value='RI 26'>La Rioja</option> 
-                            <option value='MD 28'>Madrid</option> 
-                            <option value='MU 30'>Murcia</option> 
-                            <option value='NA 31'>Navarra</option> 
-                            <option value='PV 01 20 48'>País Vasco</option> 
-                            <option value='VA 03 12 46'>Valencia</option> 
-                            <option value='CEU 51'>Ciudad Autónoma de Ceuta</option> 
-                            <option value='MLL 52'>Ciudad Autónoma de Melilla</option> 
-                            <option value='Rem'>- Remoto - </option> 
+                            <option value='AN 04 11 14 18 21 23 29 41'>Andalucia</option>
+                            <option value='AR 22 44 50'>Aragón</option>
+                            <option value='AS 33'>Asturias</option>
+                            <option value='CN 35 38'>Canarias</option>
+                            <option value='CB 39'>Cantabria</option>
+                            <option value='CL 05 09 24 34 37 40 42 47 49'>Castilla y León</option>
+                            <option value='CM 02 13 16 19 45'>Castilla-La Mancha</option>
+                            <option value='CAT 08 17 25 43'>Cataluña</option>
+                            <option value='EX 06 10'>Extremadura</option>
+                            <option value='GA 15 27 32 36'>Galicia</option>
+                            <option value='IB 07'>Islas Baleares</option>
+                            <option value='RI 26'>La Rioja</option>
+                            <option value='MD 28'>Madrid</option>
+                            <option value='MU 30'>Murcia</option>
+                            <option value='NA 31'>Navarra</option>
+                            <option value='PV 01 20 48'>País Vasco</option>
+                            <option value='VA 03 12 46'>Valencia</option>
+                            <option value='CEU 51'>Ciudad Autónoma de Ceuta</option>
+                            <option value='MLL 52'>Ciudad Autónoma de Melilla</option>
+                            <option value='Rem'>- Remoto - </option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputPR">Provincia</label>
                         <select id="inputPR" class="form-control" name="inputPR">
                             <option selected></option>
-                            <option value='01'>Álava</option> 
-                            <option value='02'>Albacete</option> 
-                            <option value='03'>Alicante</option> 
-                            <option value='04'>Almería</option> 
-                            <option value='05'>Ávila</option> 
-                            <option value='06'>Badajoz</option> 
-                            <option value='07'>Baleares</option> 
-                            <option value='08'>Barcelona</option> 
-                            <option value='09'>Burgos</option> 
-                            <option value='10'>Cáceres</option> 
-                            <option value='11'>Cádiz</option> 
-                            <option value='12'>Castellón</option> 
-                            <option value='13'>Ciudad Real</option> 
-                            <option value='14'>Córdoba</option> 
-                            <option value='15'>La Coruña</option> 
-                            <option value='16'>Cuenca</option> 
-                            <option value='17'>Gerona</option> 
-                            <option value='18'>Granada</option> 
-                            <option value='19'>Guadalajara</option> 
-                            <option value='20'>Guipúzcoa</option> 
-                            <option value='21'>Huelva</option> 
-                            <option value='22'>Huesca</option> 
-                            <option value='23'>Jaén</option> 
-                            <option value='24'>León</option> 
-                            <option value='25'>Lérida</option> 
-                            <option value='26'>La Rioja</option> 
-                            <option value='27'>Lugo</option> 
-                            <option value='28'>Madrid</option> 
-                            <option value='29'>Málaga</option> 
-                            <option value='30'>Murcia</option> 
-                            <option value='31'>Navarra</option> 
-                            <option value='32'>Orense</option> 
-                            <option value='33'>Asturias</option> 
-                            <option value='34'>Palencia</option> 
-                            <option value='35'>Las Palmas</option> 
-                            <option value='36'>Pontevedra</option> 
-                            <option value='37'>Salamanca</option> 
-                            <option value='38'>Santa Cruz de Tenerife</option> 
-                            <option value='39'>Cantabria</option> 
-                            <option value='40'>Segovia</option> 
-                            <option value='41'>Sevilla</option> 
-                            <option value='42'>Soria</option> 
-                            <option value='43'>Tarragona</option> 
-                            <option value='44'>Teruel</option> 
-                            <option value='45'>Toledo</option> 
-                            <option value='46'>Valencia</option> 
-                            <option value='47'>Valladolid</option> 
-                            <option value='48'>Vizcaya</option> 
-                            <option value='49'>Zamora</option> 
-                            <option value='50'>Zaragoza</option> 
-                            <option value='51'>Ceuta</option> 
-                            <option value='52'>Melilla</option> 
-                            <option value='00'>-resto-</option> 
+                            <option value='01'>Álava</option>
+                            <option value='02'>Albacete</option>
+                            <option value='03'>Alicante</option>
+                            <option value='04'>Almería</option>
+                            <option value='05'>Ávila</option>
+                            <option value='06'>Badajoz</option>
+                            <option value='07'>Baleares</option>
+                            <option value='08'>Barcelona</option>
+                            <option value='09'>Burgos</option>
+                            <option value='10'>Cáceres</option>
+                            <option value='11'>Cádiz</option>
+                            <option value='12'>Castellón</option>
+                            <option value='13'>Ciudad Real</option>
+                            <option value='14'>Córdoba</option>
+                            <option value='15'>La Coruña</option>
+                            <option value='16'>Cuenca</option>
+                            <option value='17'>Gerona</option>
+                            <option value='18'>Granada</option>
+                            <option value='19'>Guadalajara</option>
+                            <option value='20'>Guipúzcoa</option>
+                            <option value='21'>Huelva</option>
+                            <option value='22'>Huesca</option>
+                            <option value='23'>Jaén</option>
+                            <option value='24'>León</option>
+                            <option value='25'>Lérida</option>
+                            <option value='26'>La Rioja</option>
+                            <option value='27'>Lugo</option>
+                            <option value='28'>Madrid</option>
+                            <option value='29'>Málaga</option>
+                            <option value='30'>Murcia</option>
+                            <option value='31'>Navarra</option>
+                            <option value='32'>Orense</option>
+                            <option value='33'>Asturias</option>
+                            <option value='34'>Palencia</option>
+                            <option value='35'>Las Palmas</option>
+                            <option value='36'>Pontevedra</option>
+                            <option value='37'>Salamanca</option>
+                            <option value='38'>Santa Cruz de Tenerife</option>
+                            <option value='39'>Cantabria</option>
+                            <option value='40'>Segovia</option>
+                            <option value='41'>Sevilla</option>
+                            <option value='42'>Soria</option>
+                            <option value='43'>Tarragona</option>
+                            <option value='44'>Teruel</option>
+                            <option value='45'>Toledo</option>
+                            <option value='46'>Valencia</option>
+                            <option value='47'>Valladolid</option>
+                            <option value='48'>Vizcaya</option>
+                            <option value='49'>Zamora</option>
+                            <option value='50'>Zaragoza</option>
+                            <option value='51'>Ceuta</option>
+                            <option value='52'>Melilla</option>
+                            <option value='00'>-resto-</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -111,46 +114,49 @@
                         <label for="inputSector">Sector</label>
                         <select type="text" class="form-control" id="inputSector" name="inputSector">
                             <option selected></option>
-                            <option>Aeronautico</option> 
-                            <option>Alimentario</option> 
-                            <option>Consultoria</option> 
-                            <option>Educativo</option> 
-                            <option>Industrial</option> 
-                            <option>IT</option> 
-                            <option>Publico</option> 
-                            <option>Quimico</option> 
+                            <option>Aeronautico</option>
+                            <option>Alimentario</option>
+                            <option>Consultoria</option>
+                            <option>Educativo</option>
+                            <option>Industrial</option>
+                            <option>IT</option>
+                            <option>Publico</option>
+                            <option>Quimico</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputCompany">Empresa</label>
                         <select type="text" class="form-control" id="inputCompany" name="inputCompany">
-                            <option selected></option> 
-                            <option>Acciona</option> 
-                            <option>Aciturri</option> 
-                            <option>AGQ Labs</option> 
-                            <option>Bureau Veritas</option> 
-                            <option>Claire Joster</option> 
-                            <option>Colegio Británico de Sevilla</option> 
-                            <option>Dopp</option> 
-                            <option>Enel</option> 
-                            <option>Entidad instrumental Junta Andalucía</option> 
-                            <option>Hitachi</option> 
-                            <option>Isprox</option> 
-                            <option>Salesianos</option> 
-                            <option>SPB Global</option> 
-                            <option>Tragsa</option> 
-                            <option>Tragsatec</option> 
-                            <option>Trescal</option> 
-                            <option>Vall Companys</option> 
+                            <option selected></option>
+                            <option>Acciona</option>
+                            <option>Aciturri</option>
+                            <option>Aertec</option>
+                            <option>AGQ Labs</option>
+                            <option>Ayesa</option>
+                            <option>Bureau Veritas</option>
+                            <option>Claire Joster</option>
+                            <option>Colegio Británico de Sevilla</option>
+                            <option>Dopp</option>
+                            <option>Elecnor</option>
+                            <option>Enel</option>
+                            <option>Entidad instrumental Junta Andalucía</option>
+                            <option>Hitachi</option>
+                            <option>Isprox</option>
+                            <option>Salesianos</option>
+                            <option>SPB Global</option>
+                            <option>Tragsa</option>
+                            <option>Tragsatec</option>
+                            <option>Trescal</option>
+                            <option>Vall Companys</option>
                         </select>
 
-                    {{!-- <input type="submit" class="btn btn-primary" > --}}
+                        {{!-- <input type="submit" class="btn btn-primary"> --}}
+                    </div>
+                    <div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
                 </div>
-                <div>
-                    <br>
-                    <button type="submit" class="btn btn-primary" >Buscar</button>
-                </div>
-            </div>
         </form>
     </div>
 </section>
