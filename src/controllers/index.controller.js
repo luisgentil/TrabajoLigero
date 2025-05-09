@@ -59,3 +59,7 @@ export const renderAbout = (req, res) => {
 export const renderLegal = (req, res) => {
   res.render("legal");
 };
+
+export const renderSuscribirse = (req, res) => {
+  res.redirect("auth/signup");
+};

@@ -26,3 +26,8 @@ a.footer {
 ol {
   list-style-position: inside;
   }
+
+  #cookie-banner a {
+    color: inherit;
+    text-decoration: underline;
+}
