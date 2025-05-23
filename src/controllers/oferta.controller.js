@@ -50,7 +50,7 @@ export const renderOferta = async (req, res) => {
 export const renderNuevasOfertas = async (req, res) => {
   const today = new Date();
   const yesterday = new Date(today);
-  yesterday.setHours(today.getHours() -2); //sólo consideramos las ofertas de las 2 últimas horas
+  yesterday.setHours(today.getHours() - 6); //sólo consideramos las ofertas de las 2 últimas horas
   const recuentoNuevasOfertas = await Oferta.aggregate(
     [
       {
@@ -328,14 +328,16 @@ export const renderFormBusqueda = (req, res) => res.render('ofertas/filter.hbs')
 
 export const renderEncontrar = async (req, res) => {
   // Leer los parámetros de búsqueda a partir de los campos del filtro:
+  const textoLibreSeleccionada = req.body.inputTexto;
   const ccaaSeleccionada = req.body.inputCCAA.split(' ');
   const provinciaSeleccionada = req.body.inputPR;
   const categorySeleccionada = req.body.inputCategory;
   const sectorSeleccionada = req.body.inputSector;
   const companySeleccionada = req.body.inputCompany;
-  console.log((ccaaSeleccionada), (provinciaSeleccionada), categorySeleccionada, sectorSeleccionada, companySeleccionada);
+  console.log(textoLibreSeleccionada, (ccaaSeleccionada), (provinciaSeleccionada), categorySeleccionada, sectorSeleccionada, companySeleccionada);
   const today = new Date();
   // Construir cada sección de búsqueda de cada parámetro
+  const parteTextoLibre = {$search: {index: 'title', text: {'query': textoLibreSeleccionada, 'path': {'wildcard': '*'}}}}
   const parteCCAA = {$match: {PR: {$in:  ccaaSeleccionada } }}
   const partePR = {$match: {PR: {$in: [ provinciaSeleccionada ]} }}
   const parteCategory = {$match: {category: {$in: [ categorySeleccionada ]}}}
@@ -346,11 +348,12 @@ export const renderEncontrar = async (req, res) => {
   const parteDeadline = {$match: {deadline_application: {$gt: new Date( today )}}}
   const parteProject = {$project: {title: 1,createdAt: 1,ofertaID: 1,url: 1,company: 1,city: 1,deadline_application: 1,deadline_: {$dateToString: {format: "%d-%m-%Y",date: "$deadline_application"}}, fechaPublicacion: {$dateToString: {format: "%d-%m-%Y", date: "$createdAt"}},category: 1,PR: 1,}}
   const parteSort = { $sort: { createdAt: -1 } }
-  const parteLimit = { $limit: 1000 }
+  const parteLimit = { $limit: 2000 }
 
   // Componemos la cadena de búsqueda a partir de los elementos NO vacíos
   // Construir el array de cadena aggregate a partir del control de contenido o NO contenido de cada parámetro de búsqueda en el formulario, 
   let cadenaAgregada = [];
+  if (textoLibreSeleccionada !='') {cadenaAgregada.push(parteTextoLibre)} ;
   if (ccaaSeleccionada !='') {cadenaAgregada.push(parteCCAA)} ;
   if (provinciaSeleccionada !='') {cadenaAgregada.push(partePR)} ;
   if (categorySeleccionada !='')  {cadenaAgregada.push(parteCategory)} ;

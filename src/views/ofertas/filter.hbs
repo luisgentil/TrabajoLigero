@@ -3,17 +3,17 @@
         <h1> Buscar ofertas </h1>
         <br>
         <h3>Utiliza los filtros para encontrar tu oferta de empleo.</h3>
-        <script async src="https://cse.google.com/cse.js?cx=a76ecbbf4f0f24196">
-        </script>
-        <div class="gcse-search"></div>
-        {{!-- <form action="/data" method="post">
-            <label for="inputText">Ingresa texto:</label>
-            <input type="text" id="inputText" name="inputText" required>
-            <button type="submit">Enviar</button>
-        </form>
-        --}}
+        <p>Puedes buscar usando un texto libre:</p>
         <form action="/ofertas/encontrado" method="post">
             <div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputTitle">Texto libre</label>
+                        <input type="text" class="form-control" id="inputTexto" name="inputTexto" placeholder="Texto libre">
+                    </div>
+                </div>
+            <h4>Filtros adicionales</h4>
+            <p>Selecciona los filtros que desees aplicar a tu búsqueda.</p>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputCCAA">CCAA</label>

@@ -3,5 +3,6 @@
     1. Descomentar el script
     2. Copiar en TrabajoLigero
     3. Volver a comentar el script ANTES de hacer Git.
-
+## Y TAMBIÉN LO SIGUIENTE:
+    1. Eliminar el Partial 'partialcentral' que inserta la función scraper - central, que no debe ir en trabajoligero.
     
