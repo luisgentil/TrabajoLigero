@@ -1,42 +1,12 @@
 <div class="card card-body p-5 mt-4">
+ 
+  <p>Aquí tienes algunas de las ofertas encontradas esta semana: </p>
+  
+    {{#each oferta}}
 
-<ol>
-  <table class="table table-responsive  table-striped table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">nº</th>
-        <th scope="col">Puesto</th>
-        <th scope="col"> Fecha </th>
-        <th scope="col">Empresa</th>
-        <th scope="col">Lugar</th>
-        <th scope="col">Enlace</th>
-        <th scope="col">Límite</th>
-        {{!-- <th scope="col">Categoría</th> --}}
-      </tr>
-    </thead>
-    <tbody>
-      {{#each oferta}}
-      <tr>
-        <th scope="row">
-          <li>
-        </th>
-        <td>{{this.title}}</td>
-        <td style="20">{{this.fechaPublicacion}}</td>
-        <td>{{this.company}}</td>
-        <td>{{this.city}}</td>
-        <td><a href=" {{this.url}} " target="_blank"> ver oferta </a></td>
-        <td>{{this.deadline_}}</td>
-        {{!-- <td>{{this.category}}</td> --}}
-        {{/each}}
-      </tr>
-      </li>
-    </tbody>
-  </table>
-</ol>
-<div>
-  <h3>¿Aún buscando?</h3>
-  Consultas todas las ofertas en la web. <a class="btn btn-primary btn-lg" href="/ofertas/"
-    role="button">Ofertas</a>
-</div>
+      <li><a href="https://elnuevotrabajo.es/ofertas/oferta/{{this.ofertaID}}" target="_blank">{{this.title}}</a>.</li>
+
+  {{/each}}
+
 </div>
 

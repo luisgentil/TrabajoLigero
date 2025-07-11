@@ -7,11 +7,11 @@
         <tr>
           <th scope="col">nº</th>
           <th scope="col">Puesto</th>
-          <th scope="col"> Fecha </th>
+          <th scope="col"> Fecha alta</th>
           <th scope="col">Empresa</th>
           <th scope="col">Lugar</th>
           <th scope="col">Enlace</th>
-          <th scope="col">Límite</th>
+          <th scope="col">Fecha Límite</th>
           <th scope="col">Categoría</th>
           {{!-- <th scope="col"> PR </th> --}}
         </tr>
@@ -22,12 +22,12 @@
           <th scope="row">
             <li></li>
           </th>
-          <td>{{this.title}}</td>
-          <td style="20">{{this.fechaPublicacion}}</td>
+          <td><a href=" {{this.url}} " target="_blank"> {{this.title}} </a></td>
+          <td style="width: 8%;">{{this.fechaPublicacion}}</td>
           <td>{{this.company}}</td>
           <td>{{this.city}}</td>
-          <td><a href=" {{this.url}} " target="_blank"> {{this.ofertaID}} </a></td>
-          <td>{{this.deadline_}}</td>
+          <td><a href=" {{this.url}} " target="_blank"> Ver </a></td>
+          <td style="width: 8%;">{{this.deadline_}}</td>
           <td>{{this.category}}</td>
           {{!-- <td>{{this.PR}}</td> --}}
           {{/each}}

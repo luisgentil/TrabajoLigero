@@ -11,7 +11,8 @@ import {
   renderFormBusqueda,
   renderEncontrar,
   testFunc,
-  ofertasNewsletterSevilla,
+  ofertasNewsletter,
+  renderOfertaID,
 } from "../controllers/oferta.controller.js";
 import { isAuthenticated } from "../helpers/auth.js";
 
@@ -19,6 +20,7 @@ const router = Router();
 
 // 
 router.get("/ofertas", renderOferta);
+router.get("/ofertas/oferta/:id", renderOfertaID); // Para ver una oferta específica por ID
 router.get("/ofertas/nuevas", renderNuevasOfertas);  // últimas 2 h
 router.get("/ofertas/recientes",  renderOfertasRecientes);  // últimas 24 h
 router.get("/ofertas/sevilla",  renderOfertaSevilla);
@@ -27,7 +29,7 @@ router.get("/ofertas/espana",  renderOfertaEspana);
 router.get("/ofertas/mundo", renderOfertaMundo);
 router.get("/ofertas/buscar",  renderFormBusqueda);
 router.post("/ofertas/encontrado",  renderEncontrar);
-router.get("/ofertas/newssev",  ofertasNewsletterSevilla);
+router.get("/ofertas/newsletter",  ofertasNewsletter);
 /* // Para cuando estar registrado sea obligatorio
 router.get("/ofertas", isAuthenticated, renderOferta);
 router.get("/ofertas/nuevas", isAuthenticated, renderNuevasOfertas);  // últimas 2 h

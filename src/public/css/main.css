@@ -31,3 +31,14 @@ ol {
     color: inherit;
     text-decoration: underline;
 }
+
+/* Media Query para pantallas pequeñas (cuando las columnas se apilan) */
+@media (max-width: 576px) { /* Este es el breakpoint de 'sm' de Bootstrap */
+    .col-md-6 {
+        height: auto; /* Permite que la altura de la columna se ajuste a su contenido apilado */
+    }
+    iframe {
+        height: 400px; /* Altura fija para el iframe cuando está apilado */
+        /* O puedes usar: height: 60vh; */
+    }
+}

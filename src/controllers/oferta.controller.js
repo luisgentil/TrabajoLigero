@@ -46,11 +46,57 @@ export const renderOferta = async (req, res) => {
 
   res.render("ofertas/ofertas",{ oferta: todasOfertas});
 };
-// Genera el listado de las ofertas creadas en las últimas 2 h
+
+// ###### RENDER una oferta por OfertaID ################################33333
+export const renderOfertaID = async (req, res) => {
+  const { id } = req.params;
+console.log('ID de oferta:', id);
+  const oferta = await Oferta.aggregate(
+  [
+    { $match: { ofertaID: id } },
+    {
+      $project: {
+        title: 1,
+        createdAt: 1,
+        ofertaID: 1,
+        url: 1,
+        company: 1,
+        city: 1,
+        PR: 1,
+        category: 1,
+        sector: 1,
+        description: 1,
+        deadline_application: 1,
+        deadline_: {
+          $dateToString: {
+            format: '%d-%m-%Y',
+            date: '$deadline_application'
+          }
+        },
+        fechaPublicacion: {
+          $dateToString: {
+            format: '%d-%m-%Y',
+            date: '$createdAt'
+          }
+        }
+      }
+    }
+  ],
+  { maxTimeMS: 60000, allowDiskUse: true }
+  );
+
+  if (!oferta) {
+    return res.status(404).send('Oferta no encontrada.');
+  }
+  res.render('ofertas/ofertaID', { oferta });
+  // res.send(oferta);
+};
+
+// Genera el listado de las ofertas creadas en las últimas 6 h
 export const renderNuevasOfertas = async (req, res) => {
   const today = new Date();
   const yesterday = new Date(today);
-  yesterday.setHours(today.getHours() - 6); //sólo consideramos las ofertas de las 2 últimas horas
+  yesterday.setHours(today.getHours() - 6); //sólo consideramos las ofertas de las 6 últimas horas
   const recuentoNuevasOfertas = await Oferta.aggregate(
     [
       {
@@ -89,7 +135,7 @@ export const renderNuevasOfertas = async (req, res) => {
     { maxTimeMS: 60000, allowDiskUse: true }
   );
   
-  res.render('ofertas/ofertas', { oferta: recuentoNuevasOfertas});   ////// ac
+  res.render('ofertas/ofertasNuevas', { oferta: recuentoNuevasOfertas});   ////// ac
 };
 // Genera el listado de las ofertas creadas en las últimas 24 h
 export const renderOfertasRecientes = async (req, res) => {
@@ -417,22 +463,16 @@ export const renderEncontrar = async (req, res) => {
   res.render("ofertas/ofertasFiltradas" ,{ oferta: ofertasEncontradas });
 };
 
-export const testFunc = async (req, res) => {
-  const receivedData = 'req.body.inputText';
-  console.log('Datos recibidos:', receivedData);
-  res.status(201).send('Datos recibidos correctamente');
-};
-
-export const ofertasNewsletterSevilla = async (req, res) => {
+export const ofertasNewsletter = async (req, res) => {
   const today = new Date();
   const lastweek = new Date(today);
-  lastweek.setDate(today.getDate() - 7); //sólo consideramos las ofertas de los últimos 7 días
-  const ofertasNewsletterSev = await Oferta.aggregate(
+  lastweek.setDate(today.getDate() - 7); //sólo consideramos las ofertas de los últimos 7 días en ANDALUCIA
+  const ofertasNewsletter = await Oferta.aggregate(
     [
       {
         $match: {
           PR: {
-            $in: ["41"]
+             $in: ["04", "11", "14", "18", "21", "23", "41", "AN"]
           },
           deadline_application: {
             $gt: new Date(today)
@@ -462,19 +502,25 @@ export const ofertasNewsletterSevilla = async (req, res) => {
                       format: '%d-%m-%Y', 
                       date: '$createdAt'
                     }
-          },
-          category: 1,
-        }
-      },
-      { $sort: { createdAt: -1 } },
-      { $limit: 1000 }
-    ],
-    { maxTimeMS: 60000, allowDiskUse: true }
-  );
-  // res.send(ofertasNewsletterSev);
-  res.render("ofertas/ofertasNewsletter",{ oferta: ofertasNewsletterSev, layout: 'mainLight.hbs'});
+                  },
+                  category: 1,
+                }
+              },
+              { $sort: { createdAt: -1 } },
+              { $limit: 1000 }
+            ],
+            { maxTimeMS: 60000, allowDiskUse: true }
+          );
+          // res.send(ofertasNewsletter);
+          res.render("ofertas/ofertasNewsletter",{ oferta: ofertasNewsletter, layout: 'mainLight.hbs'});
+        };
+      
+export const testFunc = async (req, res) => {
+          const receivedData = 'req.body.inputText';
+          console.log('Datos recibidos:', receivedData);
+          res.status(201).send('Datos recibidos correctamente');
 };
-// //#######################################################################
+        // //#######################################################################
 // // ####### Función Común para grabar cualquier lista de ofertas #########
 // // ### devuelta por cualquier función que revise una web con ofertas ####
 // //#######################################################################
