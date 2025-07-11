@@ -1,0 +1,29 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div class="col-sm-6 d-flex align-items-center justify-content-center">
+      <div class="card card-body p-5 mt-4">
+        {{#each oferta}}
+        <h1>Oferta de trabajo: {{title}} </h1>
+        <br>
+        <h3>Título: <b>{{title}}</b></h3>
+        <p>Publicada: {{fechaPublicacion}}</p>
+        <p>Empresa: {{company}}</p>
+        <p>Lugar: {{city}}</p>
+        <p>Enlace: <a href="{{url}}" target="_blank">Visitar oferta</a></p>
+        <p>Límite de solicitud: <b>{{deadline_}}</b></p>
+        <p>Categoría: {{category}}</p>
+        <p>Sector: {{sector}}</p>
+        <p>Más información: {{description}}</p>
+      </div>
+    </div>
+    <div class="col-sm-6 mt-4 d-flex align-items-center justify-content-center">
+      <iframe src="{{url}}" height="100%" width="100%"></iframe>
+  </div>
+</div>
+</div>
+
+<div>
+  {{/each}}
+  <h3>¿Aún buscando?</h3>
+  Comenzar de nuevo: <a class="btn btn-success btn-lg" href="/" role="button">Inicio</a>
+</div>
