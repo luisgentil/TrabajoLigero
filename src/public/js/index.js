@@ -151,4 +151,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // Llama a la función principal para iniciar la lógica
   verificarMostrarPopup();
 });
+
+// para recargar la página o cambiar el src del iframe
+function cambiarSrc() {
+      const imgFrame = document.getElementById('OfertaImgIframe');
+      const iframe = document.getElementById('OfertaIframe');
+      const ofertaUrl = document.getElementById('OfertaUrl').href;
+      var c = iframe.src;
+      iframe.src = ofertaUrl;
+      imgFrame.classList.add('invisible');
+      iframe.classList.remove('invisible');
+      iframe.reload();
+   }
   

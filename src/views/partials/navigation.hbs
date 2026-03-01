@@ -1,42 +1,41 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-dark p-2 bg-primary">
-    <a class="navbar-brand" href="/">Nuevo Trabajo</a>
-    <h6 class="text-center text-white p-0">Ofertas de empleo de las webs de cada empresa.</h6>
+<div class="container-fluid p-1 m-1">
+  <nav class="navbar navbar-dark p-2 bg-primary navbar-expand-lg  ">
+    <div class="d-flex flex-column me-auto">
+    <a class="navbar-brand " href="/">Nuevo Trabajo</a>
+    <small class="text-white-50 p-0 me-auto mb-2">Ofertas de empleo de las webs de cada empresa.</small>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-expand-lg navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse " id="navbarNav">
+
+      <ul class="navbar-nav justify-content-end w-100">
         <li class="nav-item">
-        </li>
-      </ul>
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/about">Cómo usar esta web</a>
+          <a class="nav-link" href="/ofertas/recientes">· Últimas Ofertas </a>
         </li>
         <li class="nav-item">
-          <a class="nav-text" href="">Ofertas en...</a>
+          <a class="nav-link" href="/ofertas/buscar">· Encuentra tu oferta </a>
         </li>
-        <li><a class="nav-link" href="/ofertas/sevilla">Sevilla</a></li>
-        <li><a class="nav-link" href="/ofertas/andalucia">Andalucía</a></li>
-        <li><a class="nav-link" href="/ofertas/espana">España</a></li>
-        <li><a class="nav-link" href="/ofertas/mundo">Mundo</a></li>
-        <li><a class="nav-link" href="/ofertas/buscar">· Filtrar · </a></li>
-        {{#if user}}
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="/auth/logout">Logout</a>
-      </ul>
-      </li>
-      {{else}}
-      {{!-- <li class="nav-item">
-        <a class="nav-link" href="/auth/signin">Login</a>
-      </li> --}}
+        {{!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="ofertasDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="ofertasDropdown">
+            <li><a class="dropdown-item" href="/ofertas/sevilla">Sevilla</a></li>
+            <li><a class="dropdown-item" href="/ofertas/andalucia">Andalucía</a></li>
+            <li><a class="dropdown-item" href="/ofertas/espana">España</a></li>
+            <li><a class="dropdown-item" href="/ofertas/mundo">Mundo</a></li>
+          </ul> 
+        </li> --}}
+        {{!--
+        <li><a class="nav-link" href="/ofertas/buscar">· Filtrar · </a></li>   --}}
+
       <li class="nav-item">
-        <a class="nav-link" href="/auth/signup">Suscríbete</a>
+        <a class="nav-link" href="/auth/signup">· Sigue informado</a>
       </li>
-      {{/if}}
       </ul>
     </div>
-</div>
 </nav>
+</div>

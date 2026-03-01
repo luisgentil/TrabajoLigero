@@ -9,21 +9,22 @@
         <p>Publicada: {{fechaPublicacion}}</p>
         <p>Empresa: {{company}}</p>
         <p>Lugar: {{city}}</p>
-        <p>Enlace: <a href="{{url}}" target="_blank">Visitar oferta</a></p>
+        <p >Enlace: <a id="OfertaUrl" href="{{url}}" target="_blank">Visitar oferta</a></p>
         <p>Límite de solicitud: <b>{{deadline_}}</b></p>
         <p>Categoría: {{category}}</p>
         <p>Sector: {{sector}}</p>
         <p>Más información: {{description}}</p>
+        <button class="btn btn-primary btn-lg" onclick="cambiarSrc()">Ver oferta en el iframe</button>
       </div>
     </div>
     <div class="col-sm-6 mt-4 d-flex align-items-center justify-content-center">
-      <iframe data-src="{{url}}" height="100%" width="100%"> </iframe>
+      <img class ="" id="OfertaImgIframe" src="/img/oferta_pre.jpg" style="max-width:100%; max-height:100%;" alt="Imagen de la oferta">
+      <iframe id="OfertaIframe" src ="oferta_pre.jpg" height="100%" width="100%"> Pulsa el botón para cargar la oferta</iframe>
   </div>
 </div>
 </div>
 
 <div>
   {{/each}}
-  <h3>¿Aún buscando?</h3>
-  Comenzar de nuevo: <a class="btn btn-success btn-lg" href="/" role="button">Inicio</a>
+
 </div>

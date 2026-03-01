@@ -3,7 +3,7 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
-  
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GTBW92GXQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -11,7 +11,8 @@
     gtag('js', new Date());
 
     gtag('config', 'G-4GTBW92GXQ');
-  </script> 
+  </script>
+  
   <meta charset="UTF-8">
   <title>Ofertas de Empleo en Sevilla y otros lugares</title>
   <!-- BOOTSTRAP - BOOTSWATCH THEME - COSMO -->
@@ -29,18 +30,31 @@
 
 <body>
   {{!-- {{>header}} --}}
-      {{> navigation }}
-      {{!-- {{> navbar }} --}}
-  <main class="container-fluid">
-    <div class="col-md-4 offset-md-4">
+  {{!-- {{> navbar }} --}}
+  {{> navigation }}
+  <main class="container-fluid ">
+    <div class="col-md-4 offset-md-4 mt-3">
+    <!-- Contenido adicional: mensajes y errores -->
       {{> messages }}
       {{> errors }}
     </div>
-    {{{ body }}}
+    <div class="container-fluid">
+      <!-- Contenido principal -->
+      <div class="row">
+        <div class="col-12 col-lg-9 p-1 container-fluid">
+          {{{ body }}}
+
+        </div>
+        {{!-- <div class="col-12 col-lg-3 bg-light text-dark p-4 mt-1">
+          <!-- Contenido secundario -->
+          <h4>Columna Secundaria</h4>
+        </div> --}}
+      </div>
+    </div>
   </main>
 
-{{> footer }}
-{{> banner }}
+  {{> footer }}
+  {{> banner }}
 
 
   <!-- Scritps -->
